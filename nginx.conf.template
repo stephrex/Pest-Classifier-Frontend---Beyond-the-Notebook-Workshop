@@ -1,0 +1,13 @@
+server {
+    # Render injects PORT; Docker Compose uses the default value from the image.
+    listen ${PORT};
+    server_name _;
+
+    root /usr/share/nginx/html;
+    index index.html;
+
+    # React routes fall back to index.html instead of returning a 404.
+    location / {
+        try_files $uri $uri/ /index.html;
+    }
+}

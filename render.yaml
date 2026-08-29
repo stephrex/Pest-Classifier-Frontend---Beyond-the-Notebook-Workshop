@@ -1,0 +1,10 @@
+services:
+  - type: web
+    name: pest-classifier-frontend
+    runtime: docker
+    plan: free
+    dockerfilePath: ./Dockerfile
+    dockerContext: .
+    envVars:
+      - key: VITE_API_URL
+        value: https://pest-classifier-api.onrender.com
